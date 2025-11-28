@@ -11,11 +11,11 @@
   <div class="content-wrapper">
     <div class="video-section">
       <h3>Programación Básica</h3>
-      
+
       <div class="video-placeholder">
         <div class="video-content">
           <h4>Lógica de Programación: Condicionales + Sensores + Acciones</h4>
-          
+
           <div class="programming-concept">
             <h5>Estructura Básica:</h5>
             <div class="code-example">
@@ -48,7 +48,7 @@ FIN SI</code></pre>
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
 
@@ -58,16 +58,20 @@ FIN SI</code></pre>
       <div class="wayground-wrapper">
         <div style="width:100%;display:flex;flex-direction:column;gap:8px;min-height:635px;">
           <iframe src="https://wayground.com/embed/quiz/69290ecb29771fc6baff00f0" title="Wayground Quiz" style="flex:1; width:100%;" frameborder="0" allowfullscreen></iframe>
+          <div style="margin-top: 16px; text-align: center;">
+            <button class="nav-button" (click)="marcarCompletado()">Marcar módulo como completado</button>
+            <p style="font-size: 0.9em; color: #888;">Haz clic aquí después de terminar el quiz para desbloquear el siguiente módulo.</p>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="simulator-section">
       <h3>Simulador de Robot Básico</h3>
-      
+
       <div class="simulator">
         <div class="simulator-grid">
-          <div *ngFor="let cell of grid; let i = index" 
+          <div *ngFor="let cell of grid; let i = index"
                class="grid-cell"
                [class.robot]="cell === 'R'"
                [class.obstacle]="cell === 'X'"
@@ -77,7 +81,7 @@ FIN SI</code></pre>
             <span *ngIf="cell === 'G'">🎯</span>
           </div>
         </div>
-        
+
         <div class="simulator-controls">
           <h5>Controles del Robot:</h5>
           <div class="control-buttons">
@@ -86,7 +90,7 @@ FIN SI</code></pre>
             <button class="control-btn" (click)="moveRobot('right')" [disabled]="!canMove('right')">➡️ Derecha</button>
             <button class="control-btn" (click)="moveRobot('down')" [disabled]="!canMove('down')">⬇️ Abajo</button>
           </div>
-          
+
           <div class="sensor-readings">
             <h5>Lecturas de Sensores:</h5>
             <div class="sensor-reading">
@@ -99,11 +103,11 @@ FIN SI</code></pre>
               <span>Derecha: {{getSensorReading('right')}}</span>
             </div>
           </div>
-          
+
           <button class="reset-button" (click)="resetSimulator()">Reiniciar Simulador</button>
         </div>
       </div>
-      
+
       <div class="simulator-feedback" *ngIf="reachedGoal">
         <p>🎉 ¡Felicidades! El robot llegó a la meta.</p>
         <p>Movimientos realizados: {{moveCount}}</p>

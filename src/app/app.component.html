@@ -15,10 +15,10 @@
         <path d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10.5z"/>
       </svg>
     </button>
-    
+
     <div class="module-buttons">
-      <button *ngFor="let module of modules" 
-          class="module-btn" 
+      <button *ngFor="let module of modules"
+          class="module-btn"
           [class.completed]="isModuleCompleted(module.id)"
           [class.active]="currentRoute === module.route"
           [routerLink]="module.route"
@@ -27,7 +27,7 @@
         {{ module.id }}
       </button>
     </div>
-    
+
     <div class="reset-container">
       <button class="nav-icon-btn reset" (click)="onResetOva()" title="Reiniciar OVA" aria-label="Reiniciar">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -43,6 +43,17 @@
   <button class="manual-fab" (click)="openManual()" title="Manual de usuario" aria-label="Manual de usuario">
     <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M6 2h7l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM13 3.5V8h4.5L13 3.5zM8 12h8v2H8v-2zm0 4h5v2H8v-2z"/>
+    </svg>
+  </button>
+
+  <!-- Botón flotante de audio: reproducir / pausar (junto a manual e instrucciones) -->
+  <button class="audio-fab" (click)="toggleMusic()" [attr.aria-pressed]="isPlaying" [title]="isPlaying ? 'Apagar música' : 'Reproducir música'" aria-label="Reproducir o pausar música">
+    <svg *ngIf="!isPlaying" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M5 9v6h4l5 4V5L9 9H5z"/>
+    </svg>
+    <svg *ngIf="isPlaying" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M5 9v6h4l5 4V5L9 9H5z"/>
+      <path d="M18.5 12c0-1.77-.77-3.34-1.98-4.43L15 8.59c.93.81 1.5 2.04 1.5 3.41s-.57 2.6-1.5 3.41l1.52.02c1.2-1.09 1.96-2.66 1.98-4.41z"/>
     </svg>
   </button>
 

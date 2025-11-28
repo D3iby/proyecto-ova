@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Música de fondo (botón en la interfaz)
+
+Existe un botón de reproducción/pausa en la interfaz principal (icono de bocina). Para usarlo coloca un archivo de audio (por ejemplo `background.mp3`) en `src/assets/audio/`.
+
+Ruta propuesta del archivo: `src/assets/audio/background.mp3`.
+
+Nota: algunos navegadores bloquean reproducción automática; el botón requiere interacción del usuario para iniciar la reproducción.

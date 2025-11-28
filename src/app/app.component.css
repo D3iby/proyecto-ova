@@ -143,6 +143,26 @@
   min-width: 160px;
 }
 
+/* Estilos para el botón de reproducción/pausa de música */
+.nav-icon-btn.audio-toggle {
+  margin-left: 0.6rem;
+  border-color: #ffd166;
+  color: #ffd166;
+}
+
+.nav-icon-btn.audio-toggle:hover {
+  background: #ffd166;
+  color: #0f0c29;
+}
+
+.nav-icon-btn.audio-toggle svg { width: 20px; height: 20px; }
+
+.nav-icon-btn.audio-toggle[aria-pressed="true"] {
+  border-color: #7ed957;
+  color: #7ed957;
+  background: rgba(126,217,87,0.08);
+}
+
 /* Asegurar que Home y Reset estén por encima de la fila central */
 .home-btn,
 .reset-container {
@@ -317,7 +337,8 @@
 /* Botón flotante para el manual - colocado junto al help-fab */
 .manual-fab {
   position: fixed;
-  right: 92px; /* separarlo del help-fab (56px width + 16px gap + extra) */
+  /* aumentar espacio entre los FABs */
+  right: 188px; /* más separación: help 20px -> audio 104px -> manual 188px */
   bottom: 20px;
   width: 56px;
   height: 56px;
@@ -337,3 +358,36 @@
 
 .manual-fab svg { width: 22px; height: 22px; display:block; }
 .manual-fab:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.4); }
+
+/* Botón flotante de audio */
+.audio-fab {
+  position: fixed;
+  /* ubicarse en el centro entre los dos, con mayor separación */
+  right: 104px; /* espacio intermedio ahora entre help (20px) y manual (188px) */
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd166, #f9a826);
+  color: #0f0c29;
+  border: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.audio-fab:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.4); }
+.audio-fab svg { width: 22px; height: 22px; display:block; }
+.audio-fab[aria-pressed="true"] { background: linear-gradient(135deg, #7ed957, #4caf50); color: #0f0c29; }
+
+/* En pantallas pequeñas, apilar los botones para evitar solapamiento */
+@media (max-width: 480px) {
+  .help-fab { right: 20px; bottom: 20px; }
+  .audio-fab { right: 20px; bottom: 96px; }
+  .manual-fab { right: 20px; bottom: 172px; }
+}

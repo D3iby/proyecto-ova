@@ -85,7 +85,7 @@ export class Module5Component {
     if (!this.showFeedback) {
       this.selectedOption = option;
       this.showFeedback = true;
-      
+
       if (option === this.currentQuestion.correctAnswer) {
         this.score++;
       }
@@ -125,7 +125,7 @@ export class Module5Component {
     if (this.reachedGoal) return;
 
     let newPosition = this.robotPosition;
-    
+
     switch (direction) {
       case 'up': newPosition -= 3; break;
       case 'down': newPosition += 3; break;
@@ -134,11 +134,11 @@ export class Module5Component {
     }
 
     // Verificar límites y obstáculos
-    if (newPosition >= 0 && newPosition < 9 && 
+    if (newPosition >= 0 && newPosition < 9 &&
         !this.obstacles.includes(newPosition) &&
-        Math.floor(newPosition / 3) === Math.floor(this.robotPosition / 3) || 
+        Math.floor(newPosition / 3) === Math.floor(this.robotPosition / 3) ||
         Math.abs(newPosition - this.robotPosition) === 3) {
-      
+
       this.grid[this.robotPosition] = '';
       this.robotPosition = newPosition;
       this.grid[this.robotPosition] = 'R';
@@ -154,7 +154,7 @@ export class Module5Component {
     if (this.reachedGoal) return false;
 
     let newPosition = this.robotPosition;
-    
+
     switch (direction) {
       case 'up': newPosition -= 3; break;
       case 'down': newPosition += 3; break;
@@ -162,15 +162,15 @@ export class Module5Component {
       case 'right': newPosition += 1; break;
     }
 
-    return newPosition >= 0 && newPosition < 9 && 
+    return newPosition >= 0 && newPosition < 9 &&
            !this.obstacles.includes(newPosition) &&
-           (Math.floor(newPosition / 3) === Math.floor(this.robotPosition / 3) || 
+           (Math.floor(newPosition / 3) === Math.floor(this.robotPosition / 3) ||
             Math.abs(newPosition - this.robotPosition) === 3);
   }
 
   getSensorReading(sensor: string): string {
     let checkPosition = this.robotPosition;
-    
+
     switch (sensor) {
       case 'front': checkPosition += 3; break;
       case 'left': checkPosition -= 1; break;
@@ -180,11 +180,17 @@ export class Module5Component {
     if (checkPosition < 0 || checkPosition >= 9) return 'Fuera de límites';
     if (this.obstacles.includes(checkPosition)) return 'Obstáculo detectado';
     if (checkPosition === this.goalPosition) return 'Meta detectada';
-    
+
     return 'Camino libre';
   }
 
   resetSimulator(): void {
     this.initializeSimulator();
+  }
+
+  // Botón para marcar el módulo como completado manualmente
+  marcarCompletado(): void {
+    this.progressService.updateProgress(5, true, 1);
+    alert('¡Módulo 5 marcado como completado! Ahora puedes avanzar al módulo 6.');
   }
 }
