@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="OVA RoboIA icon">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#00f0ff"/>
+      <stop offset="100%" stop-color="#6a00ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="url(#g1)"/>
+  <!-- robot head -->
+  <rect x="12" y="16" width="40" height="28" rx="6" fill="#fff" opacity="0.95"/>
+  <!-- eyes -->
+  <rect x="20" y="24" width="6" height="6" rx="1" fill="#0f0c29"/>
+  <rect x="38" y="24" width="6" height="6" rx="1" fill="#0f0c29"/>
+  <!-- mouth -->
+  <rect x="26" y="34" width="12" height="3" rx="1" fill="#0f0c29"/>
+  <!-- antenna -->
+  <circle cx="32" cy="12" r="3" fill="#fff"/>
+  <rect x="30" y="12" width="4" height="6" rx="1" fill="#fff"/>
+  <!-- circuit dots (AI hint) -->
+  <circle cx="18" cy="40" r="1.8" fill="#00f0ff"/>
+  <circle cx="22" cy="44" r="1.6" fill="#6a00ff"/>
+  <circle cx="42" cy="40" r="1.8" fill="#00f0ff"/>
+  <circle cx="38" cy="44" r="1.6" fill="#6a00ff"/>
+</svg>

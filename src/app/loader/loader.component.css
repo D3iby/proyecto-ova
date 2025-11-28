@@ -1,0 +1,150 @@
+.loader-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		/* Fondo mejor distribuido: base linear oscuro + foco radial suave en cyan
+		   - Evitar paradas bruscas cerca del cian para que no aparezca un parche negro
+		   - Radial con opacidad baja y tamaño grande para un halo sutil */
+		background:
+			linear-gradient(135deg, #0b0814 0%, #1e1640 30%, #352b5a 60%, #113241 85%),
+			radial-gradient(500px 420px at 92% 70%, rgba(0,210,255,0.18) 0%, rgba(0,210,255,0.08) 28%, transparent 55%);
+		background-size: cover;
+		background-repeat: no-repeat;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 2000;
+		flex-direction: column;
+}
+
+.loader-animation {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	color: #fff;
+	animation: fadeIn 1.2s ease;
+}
+
+.loader-graphic {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 2rem;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.loader-img {
+	width: 160px;
+	height: 160px;
+	border-radius: 50%;
+	display: block;
+	position: relative;
+	z-index: 2;
+	box-shadow: 0 0 20px #00ffff66;
+	/* reducir amplitud de movimiento para que no sobresalga del anillo */
+	animation: float 2.6s ease-in-out infinite, pulseGlow 2.8s ease-in-out infinite;
+}
+
+.loader-ring {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	border: 6px solid rgba(255, 255, 255, 0.06);
+	box-shadow: 0 0 30px #00ffff55;
+	transform-origin: center center;
+	z-index: 1;
+	animation: spin 6s linear infinite;
+}
+
+.loader-title {
+	font-size: 2.2rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
+	letter-spacing: 2px;
+}
+
+.loader-desc {
+	font-size: 1.2rem;
+	opacity: 0.8;
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; transform: scale(0.9); }
+	to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-4px); }
+}
+
+@keyframes pulseGlow {
+	0% { box-shadow: 0 0 10px #00ffff44; }
+	50% { box-shadow: 0 0 40px #00ffff88; }
+	100% { box-shadow: 0 0 10px #00ffff44; }
+}
+
+/* Responsive: ajustes para dispositivos pequeños (móviles) */
+@media (max-width: 600px) {
+	:host { padding: 12px !important; font-size: 14px; }
+	.loader-graphic { width: 140px; height: 140px; }
+	.loader-img { width: 120px; height: 120px; }
+	.loader-title { font-size: 1.4rem; }
+	.loader-desc { font-size: 1rem; }
+	.loader-overlay { padding: 10px; }
+}
+
+/* Breakpoints adicionales: tablet / xsmall / xxsmall */
+@media (max-width: 900px) {
+	:host { padding: 16px !important; font-size: 15px; }
+	.loader-graphic { width: 170px; height: 170px; }
+	.loader-img { width: 140px; height: 140px; }
+}
+
+@media (max-width: 420px) {
+	:host { padding: 8px !important; font-size: 13px; }
+	.loader-graphic { width: 120px; height: 120px; }
+	.loader-img { width: 100px; height: 100px; }
+	.loader-title { font-size: 1.1rem; }
+	.loader-desc { font-size: 0.95rem; }
+}
+
+@media (max-width: 360px) {
+	:host { padding: 6px !important; font-size: 12px; }
+	.loader-graphic { width: 100px; height: 100px; }
+	.loader-img { width: 86px; height: 86px; }
+	.loader-title { font-size: 1rem; }
+	.loader-desc { font-size: 0.9rem; }
+}
+
+@media (max-width: 320px) {
+	:host { padding: 5px !important; font-size: 11.5px; }
+	.loader-graphic { width: 92px; height: 92px; }
+	.loader-img { width: 80px; height: 80px; }
+	.loader-title { font-size: 0.95rem; }
+	.nav-button, .nav-btn { width: 100%; box-sizing: border-box; }
+}
+
+@media (max-width: 240px) {
+	:host { padding: 4px !important; font-size: 11px; }
+	.loader-graphic { width: 80px; height: 80px; }
+	.loader-img { width: 70px; height: 70px; }
+	.loader-title { font-size: 0.9rem; }
+	.nav-button, .nav-btn { padding: 0.45rem 0.5rem; }
+}
+

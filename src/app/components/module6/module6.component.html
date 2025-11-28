@@ -1,0 +1,117 @@
+<div class="module-container">
+  <div class="module-header">
+    <h1>Módulo 6: Aplicaciones Reales de IA y Robótica</h1>
+    <div class="navigation">
+      <button class="nav-button" routerLink="/module5">← Anterior</button>
+      <button class="nav-button" routerLink="/">Inicio</button>
+      <button class="nav-button" (click)="goNext()">Siguiente →</button>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="applications-grid">
+      <h3>Aplicaciones en Diferentes Sectores</h3>
+      
+      <div class="applications-container">
+        <div class="application-card" *ngFor="let app of applications">
+          <div class="app-icon">{{app.icon}}</div>
+          <h4>{{app.sector}}</h4>
+          <p class="app-description">{{app.description}}</p>
+          <div class="app-examples">
+            <strong>Ejemplos:</strong>
+            <ul>
+              <li *ngFor="let example of app.examples">{{example}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="matching-activity">
+      <h3>Actividad: Relaciona Aplicaciones</h3>
+      <p>Arrastra cada aplicación al sector correcto</p>
+      
+      <div class="matching-game">
+        <div class="applications-list">
+          <h5>Aplicaciones:</h5>
+          <div class="draggable-item" 
+               *ngFor="let item of matchingItems"
+               draggable="true"
+               (dragstart)="onDragStart($event, item)">
+            {{item.name}}
+          </div>
+        </div>
+
+        <div class="sectors-container">
+          <div *ngFor="let sector of sectors" 
+               class="sector-dropzone"
+               (drop)="onDrop($event, sector)"
+               (dragover)="onDragOver($event)">
+            <h5>{{sector.name}} {{sector.icon}}</h5>
+            <div class="dropped-items">
+              <div *ngFor="let item of getSectorItems(sector.id)" 
+                   class="dropped-item">
+                {{item.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-feedback" *ngIf="showFeedback">
+        <h4>Resultados:</h4>
+        <p>Correctas: {{correctMatches}}/{{matchingItems.length}}</p>
+        <p *ngIf="correctMatches === matchingItems.length">🎉 ¡Perfecto! Todas las relaciones son correctas.</p>
+        <p *ngIf="correctMatches >= matchingItems.length * 0.7 && correctMatches < matchingItems.length">👍 ¡Buen trabajo! Casi todas correctas.</p>
+        <p *ngIf="correctMatches < matchingItems.length * 0.7">💡 Sigue practicando las aplicaciones.</p>
+        
+        <div class="solutions" *ngIf="correctMatches === matchingItems.length">
+          <h5>Relaciones Correctas:</h5>
+          <div class="solution-grid">
+            <div *ngFor="let sector of sectors" class="solution-sector">
+              <h6>{{sector.name}}</h6>
+              <ul>
+                <li *ngFor="let item of getCorrectSectorItems(sector.id)">{{item.name}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <button class="reset-button" (click)="resetActivity()">Reintentar</button>
+      </div>
+    </div>
+
+    <div class="real-world-examples">
+      <h3>Casos de Estudio Reales</h3>
+      
+      <div class="case-studies">
+        <div class="case-study" *ngFor="let case of caseStudies">
+          <div class="case-header">
+            <span class="case-icon">{{case.icon}}</span>
+            <h4>{{case.title}}</h4>
+          </div>
+          <p class="case-description">{{case.description}}</p>
+          <div class="case-impact">
+            <strong>Impacto:</strong> {{case.impact}}
+          </div>
+          <div class="case-technologies">
+            <strong>Tecnologías usadas:</strong>
+            <div class="tech-tags">
+              <span *ngFor="let tech of case.technologies" class="tech-tag">{{tech}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="nearpod-activity">
+      <h3>Presentación Nearpod: Actividad interactiva</h3>
+      <p class="nearpod-note">Interactúa dibujando.</p>
+      <div class="nearpod-iframe-wrapper">
+        <div class="responsive-embed">
+          <iframe src="https://app.nearpod.com/?pin=EC1F73045FF89E697D113BA7EEF9680D-1&oc=user-created&utm_source=embed&he=true" frameborder="0" allowfullscreen allow="accelerometer *; ambient-light-sensor *; autoplay *; camera *; clipboard-read *; clipboard-write *; encrypted-media *; fullscreen *; geolocation *; gyroscope *; magnetometer *; microphone *; midi *; payment *; picture-in-picture *; screen-wake-lock *; speaker *; sync-xhr *; usb *; web-share *; vibrate *; vr *"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

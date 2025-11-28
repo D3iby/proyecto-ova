@@ -1,0 +1,89 @@
+<div class="module-container">
+  <div class="module-header">
+    <h1>Módulo 2: ¿Qué es la Robótica?</h1>
+    <div class="navigation">
+      <button class="nav-button" routerLink="/module1">← Anterior</button>
+      <button class="nav-button" routerLink="/">Inicio</button>
+      <button class="nav-button" (click)="goNext()">Siguiente →</button>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="h5p-presentation">
+      <h3>Presentación Interactiva - H5P</h3>
+      
+      <div class="robot-definition">
+        <h4>¿Qué es un Robot?</h4>
+        <p>Un robot es una máquina programable capaz de realizar tareas automáticamente.</p>
+      </div>
+
+      <div class="components-section">
+        <h4>Componentes de un Robot:</h4>
+        <div class="components-grid">
+          <div class="component-card">
+            <div class="component-icon">📡</div>
+            <h5>Sensores</h5>
+            <p>Captan información del entorno (cámaras, micrófonos, sensores táctiles)</p>
+          </div>
+          <div class="component-card">
+            <div class="component-icon">⚙️</div>
+            <h5>Actuadores</h5>
+            <p>Ejecutan acciones (motores, brazos mecánicos, altavoces)</p>
+          </div>
+          <div class="component-card">
+            <div class="component-icon">🧠</div>
+            <h5>Controlador</h5>
+            <p>Procesa información y toma decisiones (cerebro del robot)</p>
+          </div>
+          <div class="component-card">
+            <div class="component-icon">🔩</div>
+            <h5>Chasis</h5>
+            <p>Estructura física que sostiene todos los componentes</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-section">
+        <h4>Video Explicativo</h4>
+        <div class="video-placeholder">
+          <div class="h5p-embed-wrapper">
+            <div class="responsive-embed">
+              <iframe src="https://universidaddenario3.h5p.com/content/1292757428791495218/embed" aria-label="¿Qué es la Robótica?" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="drag-drop-activity">
+      <h3>Actividad: Arma tu Robot</h3>
+      <p>Haz clic en los componentes para agregarlos al robot</p>
+      
+      <div class="drag-drop-container">
+        <div class="components-pool">
+          <div class="draggable-component" 
+               *ngFor="let component of components" 
+               (click)="addComponent(component)"
+               [class.used]="isComponentUsed(component)">
+            {{component.icon}} {{component.name}}
+          </div>
+        </div>
+        
+        <div class="robot-body">
+          <div class="robot-image">🤖</div>
+          <div class="placed-components">
+            <div *ngFor="let placed of placedComponents" class="placed-item">
+              {{placed.icon}} {{placed.name}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-feedback" *ngIf="showFeedback">
+        <p *ngIf="isRobotComplete()">✅ ¡Perfecto! Has construido un robot completo.</p>
+        <p *ngIf="!isRobotComplete()">Sigue agregando componentes al robot.</p>
+        <button class="reset-button" (click)="resetActivity()">Reintentar</button>
+      </div>
+    </div>
+  </div>
+</div>

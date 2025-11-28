@@ -1,0 +1,128 @@
+<div class="module-container">
+  <div class="module-header">
+    <h1>Módulo 3: IA vs Robótica - Relación y Diferencias</h1>
+    <div class="navigation">
+      <button class="nav-button" routerLink="/module2">← Anterior</button>
+      <button class="nav-button" routerLink="/">Inicio</button>
+      <button class="nav-button" (click)="goNext()">Siguiente →</button>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="concept-map">
+      <h3>Mapa Conceptual Interactivo</h3>
+      
+      <div class="map-container">
+        <div class="concept-category ia-only">
+          <h4>🤖 Solo IA</h4>
+          <div class="category-content">
+            <ul>
+              <li>Asistentes virtuales (Siri, Alexa)</li>
+              <li>Recomendaciones de contenido</li>
+              <li>Traductores automáticos</li>
+              <li>Detección de spam</li>
+              <li>Chatbots conversacionales</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="concept-category robotics-only">
+          <h4>🦾 Solo Robótica</h4>
+          <div class="category-content">
+            <ul>
+              <li>Brazos industriales simples</li>
+              <li>Líneas de ensamblaje</li>
+              <li>Aspiradoras automáticas básicas</li>
+              <li>Grúas automatizadas</li>
+              <li>Relojes automáticos</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="concept-category both">
+          <h4>🚀 IA + Robótica</h4>
+          <div class="category-content">
+            <ul>
+              <li>Coches autónomos</li>
+              <li>Robots de compañía</li>
+              <li>Drones inteligentes</li>
+              <li>Robots quirúrgicos</li>
+              <li>Robots de exploración</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="educaplay-activity">
+      <h3>Juego Interactivo: Clasificación IA vs Robótica</h3>
+      <p>Resuelve el siguiente juego interactivo para practicar la diferencia entre IA y Robótica.</p>
+      <div class="educaplay-iframe-container">
+        <iframe allow="fullscreen; autoplay;" allowfullscreen width="795" height="690" frameborder="0" src="https://es.educaplay.com/juego/26918775-clasificacion_ia_vs_robotica.html"></iframe>
+      </div>
+    </div>
+    <div class="classification-activity">
+      <h3>Actividad: Clasifica los Ejemplos</h3>
+      <p>Haz clic en los botones para clasificar cada ejemplo</p>
+      
+      <div class="classification-game">
+        <div class="current-example" *ngIf="currentExample">
+          <div class="example-card">
+            <h4>Ejemplo:</h4>
+            <p>{{currentExample.text}}</p>
+          </div>
+          
+          <div class="category-buttons">
+            <button class="category-btn ia-btn" (click)="classifyExample('ia')">
+              🤖 Solo IA
+            </button>
+            <button class="category-btn robotics-btn" (click)="classifyExample('robotics')">
+              🦾 Solo Robótica
+            </button>
+            <button class="category-btn both-btn" (click)="classifyExample('both')">
+              🚀 Ambas
+            </button>
+          </div>
+        </div>
+
+        <div class="results-grid">
+          <div class="result-category">
+            <h5>🤖 Solo IA</h5>
+            <div class="result-items">
+              <div *ngFor="let item of iaItems" class="result-item">
+                {{item.text}}
+              </div>
+            </div>
+          </div>
+          
+          <div class="result-category">
+            <h5>🦾 Solo Robótica</h5>
+            <div class="result-items">
+              <div *ngFor="let item of roboticsItems" class="result-item">
+                {{item.text}}
+              </div>
+            </div>
+          </div>
+          
+          <div class="result-category">
+            <h5>🚀 Ambas</h5>
+            <div class="result-items">
+              <div *ngFor="let item of bothItems" class="result-item">
+                {{item.text}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-feedback" *ngIf="showFeedback">
+        <h4>Resultados:</h4>
+        <p>Correctas: {{correctAnswers}}/{{examples.length}}</p>
+        <p *ngIf="correctAnswers === examples.length">🎉 ¡Perfecto! Todas las clasificaciones son correctas.</p>
+        <p *ngIf="correctAnswers >= examples.length * 0.7 && correctAnswers < examples.length">👍 ¡Buen trabajo! Casi todas correctas.</p>
+        <p *ngIf="correctAnswers < examples.length * 0.7">💡 Sigue practicando las diferencias.</p>
+        <button class="reset-button" (click)="resetActivity()">Reintentar</button>
+      </div>
+    </div>
+  </div>
+</div>

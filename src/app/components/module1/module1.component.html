@@ -1,0 +1,63 @@
+<div class="module-container">
+  <div class="module-header">
+    <h1>Módulo 1: Introducción a la Inteligencia Artificial</h1>
+    <div class="navigation">
+      <button class="nav-button" routerLink="/">Inicio</button>
+      <button class="nav-button" (click)="goNext()">Siguiente →</button>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="interactive-presentation">
+      <div class="genially-placeholder">
+        <h3>Presentación Interactiva</h3>
+        <div class="presentation-content">
+          <h4>¿Qué es la IA?</h4>
+          <p>La Inteligencia Artificial es la simulación de procesos de inteligencia humana por parte de máquinas.</p>
+          
+          <h4>Tipos de IA:</h4>
+          <ul>
+            <li><strong>IA Débil:</strong> Especializada en una tarea específica (ej: asistentes virtuales)</li>
+            <li><strong>IA Fuerte:</strong> Capacidades humanas completas (aún en desarrollo)</li>
+            <li><strong>IA Generativa:</strong> Crea contenido nuevo (texto, imágenes, música)</li>
+          </ul>
+          
+          <h4>Ejemplos en la vida real:</h4>
+          <ul>
+            <li>Asistentes virtuales (Siri, Alexa, Google Assistant)</li>
+            <li>Sistemas de recomendación (Netflix, YouTube, Amazon)</li>
+            <li>Chatbots de atención al cliente</li>
+            <li>Reconocimiento facial en redes sociales</li>
+          </ul>
+        </div>
+        <div style="width: 100%;">
+          <div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;">
+            <iframe title="Introducción a la Actividad: Selecciona las Parejas" frameborder="0" width="1200px" height="675px" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genially.com/6928fd9361e2adf4468e8e41" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mini-activity">
+      <h3>Mini Actividad: Identifica la IA</h3>
+      <p>Haz clic en los elementos que creas que usan Inteligencia Artificial</p>
+      
+      <div class="activity-grid">
+        <div class="activity-item" 
+             *ngFor="let item of activityItems" 
+             [class.correct]="item.selected && item.hasAI"
+             [class.incorrect]="item.selected && !item.hasAI"
+             (click)="selectItem(item)">
+          <div class="item-icon">{{item.icon}}</div>
+          <span>{{item.name}}</span>
+        </div>
+      </div>
+
+      <div class="activity-feedback" *ngIf="showFeedback">
+        <p *ngIf="score >= 3">✅ ¡Excelente! Has identificado correctamente {{score}} de 5 elementos con IA.</p>
+        <p *ngIf="score < 3">❌ Puedes mejorar. Has identificado {{score}} de 5 elementos con IA.</p>
+        <button class="reset-button" (click)="resetActivity()">Reintentar</button>
+      </div>
+    </div>
+  </div>
+</div>

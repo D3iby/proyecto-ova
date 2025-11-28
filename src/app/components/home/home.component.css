@@ -1,0 +1,158 @@
+.home-container {
+  /* Ajustar la altura mínima para evitar scroll extra bajo el contenido
+     Restamos 120px que corresponden a las barras/headers fijos superiores */
+  min-height: calc(100vh - 120px);
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+.futuristic-header {
+  text-align: center;
+  padding: 1.2rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #00ffff;
+}
+
+.tech-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.circuit-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+@keyframes circuitMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+.instructions-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0rem 1.5rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.instruction-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  h3 {
+    color: #00ffff;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+.start-section {
+  text-align: center;
+  padding: 2rem 2rem;
+}
+
+.start-button {
+  position: relative;
+  background: #2196F3;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+  }
+}
+
+.button-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 150, 243, 0.12);
+  transition: left 0.5s ease;
+}
+
+.start-button:hover .button-glow {
+  left: 100%;
+}
+
+/* Responsive: ajustes para dispositivos pequeños (móviles) */
+@media (max-width: 600px) {
+  :host { padding: 8px !important; font-size: 14px; }
+  .main-title { font-size: 2rem; }
+  .instructions-section { grid-template-columns: 1fr; padding: 0 1rem 1rem; }
+  .instruction-card { padding: 1rem; }
+  .start-section { padding: 1rem; }
+  .start-button { width: 100%; padding: 0.9rem 1rem; }
+}
+
+@media (max-width: 900px) {
+  :host { font-size: 15px; }
+  .instructions-section { max-width: 95%; }
+}
+
+@media (max-width: 420px) {
+  :host { font-size: 13px; }
+  .main-title { font-size: 1.6rem; }
+  .instruction-card { padding: 0.8rem; }
+}
+
+@media (max-width: 360px) {
+  :host { font-size: 12px; }
+  .start-button { padding: 0.7rem 0.8rem; }
+}
+
+@media (max-width: 320px) {
+  :host { font-size: 11.5px; }
+  .main-title { font-size: 1.5rem; }
+  .nav-button, .nav-btn { width: 100%; box-sizing: border-box; }
+}
+
+@media (max-width: 240px) {
+  :host { font-size: 11px; }
+  .start-button { padding: 0.6rem 0.7rem; }
+  .nav-button, .nav-btn { padding: 0.35rem 0.4rem; }
+}

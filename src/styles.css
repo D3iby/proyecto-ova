@@ -1,1 +1,88 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importar Material Theme */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Variables globales */
+:root {
+  --primary-color: #302b63;
+  --secondary-color: #00ffff;
+  --accent-color: #ff00ff;
+  --background-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+}
+
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--background-gradient);
+  color: white;
+  min-height: 100vh;
+}
+
+/* Utilidades */
+.futuristic-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+}
+
+.glow-effect {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+/* Animaciones */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Media queries globales consolidadas (moved from component-level files)
+   Estas reglas cubren comportamientos genéricos: contenedores al 100%, embeds fluidos,
+   navegación y botones que deben adaptarse en breakpoints pequeños. Mantener aquí
+   las reglas comunes evita duplicación en cada componente. */
+@media (max-width: 900px) {
+  .module-container, .content-wrapper, .futuristic-card, .simulator-section, .video-section, .interactive-quiz, .exam-intro, .exam-content, .certificate-section { width: 100% !important; max-width: 100% !important; }
+  .module-header, .navigation { flex-wrap: wrap; gap: 0.5rem; }
+  img, iframe, video, .responsive-embed, .local-iframe-wrapper .responsive-embed, .wayground-wrapper iframe { max-width: 100% !important; height: auto !important; }
+  .module-buttons { position: static !important; transform: none !important; }
+}
+
+@media (max-width: 600px) {
+  :root { font-size: 14px; }
+  .module-container, .content-wrapper { padding: 8px !important; }
+  .simulator, .simulator-grid, .map-container, .components-grid, .results-grid, .applications-container { grid-template-columns: 1fr !important; }
+  .nav-button, .nav-btn, .module-btn, .control-btn, .reset-button, .external-link, .next-button { width: 100% !important; box-sizing: border-box !important; }
+  .control-buttons { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 420px) {
+  :root { font-size: 13px; }
+  .module-container { padding: 6px !important; }
+  .module-buttons { gap: 8px !important; }
+}
+
+@media (max-width: 360px) {
+  :root { font-size: 12px; }
+}
+
+@media (max-width: 320px) {
+  :root { font-size: 11.5px; }
+  .module-btn { width: 28px !important; height: 28px !important; font-size: 0.78rem !important; }
+  .nav-button, .nav-btn { width: 100% !important; box-sizing: border-box !important; }
+}
+
+@media (max-width: 240px) {
+  :root { font-size: 11px; }
+  .module-btn { width: 26px !important; height: 26px !important; font-size: 0.72rem !important; }
+  .module-container { padding: 4px !important; }
+}

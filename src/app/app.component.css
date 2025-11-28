@@ -1,0 +1,460 @@
+.app-container {
+  min-height: 100vh;
+}
+
+.global-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.progress-text {
+  color: #00ffff;
+  font-size: 0.9rem;
+  font-weight: bold;
+  min-width: 100px;
+}
+
+.module-navigation {
+  position: fixed;
+  top: 51px;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: space-between; /* mantiene inicio a la izquierda y reinicio a la derecha */
+  z-index: 999;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.home-btn {
+  background: transparent;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-btn:hover {
+  background: #00ffff;
+  color: #0f0c29;
+  transform: scale(1.1);
+}
+
+/* Botón icónico reutilizable (misma forma que .home-btn) */
+.nav-icon-btn {
+  background: transparent;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon-btn:hover {
+  background: #00ffff;
+  color: #0f0c29;
+  transform: scale(1.08);
+}
+
+/* Variante para el botón de reinicio (color rojo) */
+.nav-icon-btn.reset {
+  border-color: #ff4d4d;
+  color: #ff4d4d;
+}
+
+.nav-icon-btn.reset:hover {
+  background: #ff4d4d;
+  color: #ffffff;
+}
+
+/* Ajustes para SVG dentro de los botones icónicos */
+.home-btn svg,
+.nav-icon-btn svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.home-btn,
+.nav-icon-btn {
+  line-height: 0; /* evita offsets por fuente */
+}
+
+.module-buttons {
+  display: flex;
+  gap: 0.5rem;
+  /* Centrado absoluto respecto al nav para estar siempre en el centro de la pantalla */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* por debajo de controles Importantes */
+}
+
+.reset-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 160px;
+}
+
+/* Asegurar que Home y Reset estén por encima de la fila central */
+.home-btn,
+.reset-container {
+  position: relative;
+  z-index: 2;
+}
+
+.reset-ova-button {
+  background: transparent;
+  border: 2px solid #ff4d4d;
+  color: #ff4d4d;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.18s ease;
+}
+
+.reset-ova-button:hover {
+  background: #ff4d4d;
+  color: #ffffff;
+  transform: scale(1.03);
+}
+
+.module-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.module-btn:hover {
+  border-color: #00ffff;
+  transform: scale(1.1);
+}
+
+/* Estilo para botones de módulo bloqueados */
+.module-btn[disabled] {
+  background: #6b6b6b; /* gris apagado */
+  border-color: rgba(255,255,255,0.08);
+  color: #e6e6e6;
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+  position: relative;
+}
+
+.module-btn[disabled]::after {
+  content: '🔒';
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  font-size: 0.7rem;
+}
+
+.module-btn[disabled]:hover {
+  border-color: rgba(255,255,255,0.08);
+}
+
+/* Estilo para botones de navegación dentro de módulos cuando están bloqueados */
+.nav-button[disabled] {
+  background: #6b6b6b;
+  border: 2px solid rgba(255,255,255,0.08);
+  color: #e6e6e6;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.nav-button[disabled]::after {
+  content: ' 🔒';
+  margin-left: 6px;
+}
+
+.module-btn.active {
+  background: #00ffff;
+  color: #0f0c29;
+  border-color: #00ffff;
+}
+
+.module-btn.completed {
+  background: #4CAF50;
+  border-color: #4CAF50;
+  color: white;
+}
+
+.app-container {
+  padding-top: 120px;
+}
+
+/* Botón flotante de ayuda (esquina inferior derecha) */
+.help-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00bcd4, #0077b6);
+  color: white;
+  border: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.help-fab:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.4); }
+
+/* Modal de ayuda */
+.help-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1999;
+  padding: 1rem;
+}
+
+.help-modal {
+  background: linear-gradient(180deg, #0f0c29, #24243e);
+  color: white;
+  border-radius: 12px;
+  padding: 1.2rem;
+  max-width: 720px;
+  width: 100%;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.help-modal-header h3 { margin: 0 0 0.5rem 0; color: #00ffff; }
+.help-modal-body p { margin: 0 0 0.6rem 0; }
+.help-modal-body ul { margin: 0 0 1rem 1.1rem; }
+
+.help-modal-footer { display:flex; justify-content:flex-end; }
+.help-close-btn {
+  background: #2196F3;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* Responsive: ajustes para dispositivos pequeños (móviles) */
+@media (max-width: 600px) {
+  :host { padding: 12px !important; font-size: 14px; }
+  img, .avatar { max-width: 100%; height: auto; }
+  h1 { font-size: 1.4rem !important; }
+  h2 { font-size: 1.2rem !important; }
+  p, label, li { font-size: 0.95rem; }
+  .container, .content, .card, .panel { padding: 8px !important; }
+  .actions, .controls, .toolbar { display: flex; flex-direction: column; gap: 8px; }
+  .btn, button { width: 100%; box-sizing: border-box; }
+}
+
+/* Breakpoints adicionales: tablet / small / x-small */
+@media (max-width: 900px) {
+  :host { padding: 16px !important; font-size: 15px; }
+  .container, .content { padding: 12px !important; }
+  .actions, .controls { flex-direction: column; }
+}
+
+@media (max-width: 420px) {
+  :host { padding: 8px !important; font-size: 13px; }
+  h1 { font-size: 1.2rem !important; }
+  h2 { font-size: 1rem !important; }
+  .container, .content, .card { padding: 6px !important; }
+}
+
+@media (max-width: 360px) {
+  :host { padding: 6px !important; font-size: 12px; }
+  .btn, button { padding: 0.6rem 0.8rem; }
+}
+
+@media (max-width: 320px) {
+  :host { padding: 5px !important; font-size: 11.5px; }
+  h1 { font-size: 1.05rem !important; }
+  h2 { font-size: 0.95rem !important; }
+  .btn, button, .nav-button, .nav-btn { width: 100%; box-sizing: border-box; }
+}
+
+@media (max-width: 240px) {
+  :host { padding: 4px !important; font-size: 11px; }
+  h1 { font-size: 1rem !important; }
+  .btn, button, .nav-button, .nav-btn { padding: 0.5rem 0.6rem; }
+}
+.responsive-nav-adjustments {
+  /* helper class for very-specific overrides if needed */
+}
+
+/* Reglas reforzadas para los botones principales (1..7) y layout de la barra */
+@media (max-width: 900px) {
+  .module-buttons { left: 50%; transform: translateX(-50%); gap: 0.4rem; }
+  .module-btn { width: 36px; height: 36px; font-size: 0.92rem; }
+}
+
+@media (max-width: 600px) {
+  .module-buttons { position: static !important; transform: none !important; margin: 0.4rem auto; gap: 0.35rem; flex-wrap: wrap; justify-content: center; }
+  .module-btn { width: 34px !important; height: 34px !important; font-size: 0.88rem !important; }
+  .module-navigation { padding: 0.6rem 8px !important; }
+  .home-btn, .nav-icon-btn { width: 44px !important; height: 44px !important; }
+}
+
+@media (max-width: 420px) {
+  .module-buttons { gap: 0.25rem; }
+  .module-btn { width: 32px !important; height: 32px !important; font-size: 0.85rem !important; }
+  .module-navigation { padding: 0.5rem 6px !important; }
+}
+
+@media (max-width: 360px) {
+  .module-buttons { gap: 0.2rem; }
+  .module-btn { width: 30px !important; height: 30px !important; font-size: 0.8rem !important; }
+  .home-btn, .nav-icon-btn { width: 40px !important; height: 40px !important; }
+}
+
+@media (max-width: 320px) {
+  .module-buttons { gap: 0.15rem; }
+  .module-btn { width: 28px !important; height: 28px !important; font-size: 0.78rem !important; }
+  .module-navigation { padding: 0.4rem 6px !important; }
+}
+
+@media (max-width: 240px) {
+  .module-buttons { gap: 0.1rem; }
+  .module-btn { width: 26px !important; height: 26px !important; font-size: 0.72rem !important; }
+  .home-btn, .nav-icon-btn { width: 36px !important; height: 36px !important; }
+}
+
+/* Nuevo: estilo visual mejorado para botones centrales (verde, sombra y grid centrado) */
+.module-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.module-btn {
+  background: linear-gradient(180deg,#34c759,#28a745); /* verde agradable */
+  border: 2px solid rgba(0,0,0,0.08);
+  color: #fff;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  font-weight: 800;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25), inset 0 -4px 8px rgba(0,0,0,0.06);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.module-btn:hover { transform: translateY(-4px) scale(1.03); }
+
+/* Centrar el séptimo botón debajo de la segunda columna */
+.module-buttons .module-btn:nth-child(7) { grid-column: 2; }
+
+/* Adaptaciones visuales por breakpoints: tamaños más agradables */
+@media (max-width: 900px) {
+  .module-btn { width: 48px; height: 48px; }
+}
+@media (max-width: 600px) {
+  .module-btn { width: 44px; height: 44px; }
+  .module-buttons { gap: 10px; }
+}
+@media (max-width: 420px) {
+  .module-btn { width: 40px; height: 40px; }
+}
+@media (max-width: 360px) {
+  .module-btn { width: 36px; height: 36px; }
+}
+@media (max-width: 320px) {
+  .module-btn { width: 32px; height: 32px; }
+}
+@media (max-width: 240px) {
+  .module-btn { width: 28px; height: 28px; }
+}
+.help-close-btn:hover { opacity: 0.95; transform: translateY(-1px); }
+
+/* Botón flotante para el manual - colocado junto al help-fab */
+.manual-fab {
+  position: fixed;
+  right: 92px; /* separarlo del help-fab (56px width + 16px gap + extra) */
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7b1fa2, #512da8);
+  color: white;
+  border: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.manual-fab svg { width: 22px; height: 22px; display:block; }
+.manual-fab:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.4); }

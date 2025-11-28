@@ -1,0 +1,528 @@
+.module-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: white;
+  padding: 2rem;
+}
+
+.module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.module-header h1 {
+  color: #00ffff;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.content-wrapper {
+  display: grid;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.video-section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.video-section h3 {
+  color: #00ffff;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.video-placeholder {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+}
+
+.video-content h4 {
+  color: #ff00ff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.programming-concept {
+  margin-bottom: 2rem;
+}
+
+.programming-concept h5 {
+  color: #00ffff;
+  margin-bottom: 1rem;
+}
+
+.code-example {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border-left: 4px solid #00ffff;
+  overflow-x: auto;
+}
+
+.code-example pre {
+  margin: 0;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+}
+
+.sensor-actions {
+  margin-top: 2rem;
+}
+
+.sensor-actions h5 {
+  color: #00ffff;
+  margin-bottom: 1rem;
+}
+
+.sensor-action-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.sensor-action {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.sensor {
+  color: #00ffff;
+  font-weight: bold;
+}
+
+.arrow {
+  color: #ff00ff;
+  font-weight: bold;
+}
+
+.action {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.external-link {
+  background: #2196F3;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.external-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.interactive-quiz {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.interactive-quiz h3 {
+  color: #00ffff;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.question-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.question-card h4 {
+  color: #ff00ff;
+  margin-bottom: 1rem;
+}
+
+.options-container {
+  display: grid;
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+}
+
+.option {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.option:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.option.selected {
+  border-color: #00ffff;
+  background: rgba(0, 255, 255, 0.1);
+}
+
+.option.correct {
+  border-color: #4CAF50;
+  background: rgba(76, 175, 80, 0.2);
+}
+
+.option.incorrect {
+  border-color: #f44336;
+  background: rgba(244, 67, 54, 0.2);
+}
+
+.quiz-feedback {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.correct-feedback {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.incorrect-feedback {
+  color: #f44336;
+  font-weight: bold;
+}
+
+.next-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.next-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.quiz-results {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.quiz-results h4 {
+  color: #00ffff;
+  margin-bottom: 1rem;
+}
+
+.result-message p {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+.simulator-section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* Wayground embed activity styling (uses same visual treatment) */
+.wayground-activity {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+.wayground-activity h3 {
+  color: #00ffff;
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.wayground-activity .wayground-note {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.wayground-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.wayground-wrapper iframe {
+  width: 100%;
+  max-width: 1200px;
+  height: 600px;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .wayground-wrapper iframe {
+    height: 480px;
+  }
+}
+
+.simulator-section h3 {
+  color: #00ffff;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.simulator {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.simulator-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  background: #1e1e1e;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.grid-cell {
+  aspect-ratio: 1;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 1.5rem;
+}
+
+.grid-cell.robot {
+  background: #00bcd4;
+}
+
+.grid-cell.obstacle {
+  background: #f44336;
+}
+
+.grid-cell.goal {
+  background: #4CAF50;
+}
+
+.simulator-controls {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.simulator-controls h5 {
+  color: #ff00ff;
+  margin-bottom: 1rem;
+}
+
+.control-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sensor-readings {
+  margin-bottom: 1.5rem;
+}
+
+.sensor-readings h5 {
+  color: #00ffff;
+  margin-bottom: 1rem;
+}
+
+.sensor-reading {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.8rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+.simulator-feedback {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(76, 175, 80, 0.2);
+  border-radius: 10px;
+  border: 1px solid #4CAF50;
+  margin-top: 1rem;
+}
+
+.reset-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.reset-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Centrar el botón de reiniciar dentro de la columna de controles del simulador */
+.simulator-controls .reset-button {
+  display: block;
+  margin: 1.25rem auto 1rem; /* margen superior y centrar horizontalmente */
+  width: fit-content;
+}
+
+@media (max-width: 768px) {
+  .module-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .simulator {
+    grid-template-columns: 1fr;
+  }
+  
+  .control-buttons {
+    grid-template-columns: 1fr;
+  }
+  
+  .module-header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Responsive adicional: ajustes específicos para móviles muy pequeños */
+@media (max-width: 600px) {
+  :host { padding: 12px !important; font-size: 14px; }
+  .simulator, .simulator-grid { grid-template-columns: 1fr; }
+  .grid-cell { font-size: 1.1rem; }
+  .control-buttons, .sensor-action-grid { grid-template-columns: 1fr; }
+  .video-section, .interactive-quiz { padding: 1rem; }
+  .external-link, .next-button { width: 100%; }
+}
+
+@media (max-width: 900px) {
+  :host { font-size: 15px; }
+  .simulator { gap: 1rem; }
+}
+
+@media (max-width: 420px) {
+  :host { font-size: 13px; }
+  .grid-cell { font-size: 1rem; }
+  .simulator-controls { padding: 0.8rem; }
+}
+
+@media (max-width: 360px) {
+  :host { font-size: 12px; }
+  .grid-cell { font-size: 0.95rem; }
+}
+
+@media (max-width: 320px) {
+  :host { font-size: 11.5px; }
+  .grid-cell { font-size: 0.9rem; }
+  .nav-button, .nav-btn { width: 100%; box-sizing: border-box; }
+}
+
+@media (max-width: 240px) {
+  :host { font-size: 11px; }
+  .grid-cell { font-size: 0.85rem; }
+  .nav-button, .nav-btn { padding: 0.4rem 0.45rem; }
+}
+
+/* Reglas globales movidas a `src/styles.css`. Reglas adicionales específicas del simulador
+   permanecen al final del archivo para casos muy pequeños. */
+/* Reglas adicionales y reforzadas para asegurar que el simulador sea completamente responsive
+   en pantallas muy pequeñas: fuerza una columna, controles apilados, iframes fluidos y
+   reduce padding/margenes. */
+@media (max-width: 320px) {
+  .simulator-grid { grid-template-columns: 1fr !important; gap: 4px !important; }
+  .grid-cell { aspect-ratio: auto !important; min-height: 48px !important; width: 100% !important; padding: 6px !important; }
+  .grid-cell iframe, .grid-cell embed, .grid-cell object, .wayground-wrapper iframe { width: 100% !important; height: auto !important; max-width: 100% !important; }
+  .simulator-controls { display: flex !important; flex-direction: column !important; gap: 6px !important; align-items: stretch !important; }
+  .simulator-controls .control-btn, .simulator-controls .reset-button, .control-btn { width: 100% !important; box-sizing: border-box !important; }
+  .control-buttons { grid-template-columns: 1fr !important; }
+  .external-link, .next-button, .reset-button { width: 100% !important; }
+}
+
+@media (max-width: 240px) {
+  .simulator-grid { gap: 3px !important; }
+  .grid-cell { padding: 4px !important; min-height: 40px !important; }
+  .simulator-controls .control-btn, .simulator-controls .reset-button { padding: 6px 8px !important; font-size: 0.78rem !important; }
+  img, iframe, video { max-width: 100% !important; height: auto !important; }
+}
+
+/* Fuerza overflow visible y box-sizing para evitar recortes inesperados */
+.simulator, .simulator-grid, .grid-cell { box-sizing: border-box !important; max-width: 100% !important; overflow: visible !important; }

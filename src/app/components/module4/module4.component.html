@@ -1,0 +1,148 @@
+<div class="module-container">
+  <div class="module-header">
+    <h1>Módulo 4: Sensores y Datos en Robótica</h1>
+    <div class="navigation">
+      <button class="nav-button" routerLink="/module3">← Anterior</button>
+      <button class="nav-button" routerLink="/">Inicio</button>
+      <button class="nav-button" (click)="goNext()">Siguiente →</button>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="sensors-intro">
+      <h3>Sensores en Robótica</h3>
+      
+      <div class="sensor-types">
+        <div class="sensor-card">
+          <h4>¿Qué es un Sensor?</h4>
+          <p>Dispositivo que detecta cambios en el entorno y los convierte en señales eléctricas.</p>
+        </div>
+
+        <div class="sensors-grid">
+          <div class="sensor-type">
+            <h5>🦇 Sensor de Ultrasonido</h5>
+            <p><strong>Función:</strong> Mide distancias usando ondas sonoras</p>
+            <p><strong>Ejemplo:</strong> Robot evita obstáculos</p>
+          </div>
+          
+          <div class="sensor-type">
+            <h5>📷 Sensor de Cámara</h5>
+            <p><strong>Función:</strong> Captura imágenes y video</p>
+            <p><strong>Ejemplo:</strong> Reconocimiento facial</p>
+          </div>
+          
+          <div class="sensor-type">
+            <h5>👆 Sensor Táctil</h5>
+            <p><strong>Función:</strong> Detecta contacto físico</p>
+            <p><strong>Ejemplo:</strong> Robot agarra objetos</p>
+          </div>
+          
+          <div class="sensor-type">
+            <h5>🔴 Sensor Infrarrojo</h5>
+            <p><strong>Función:</strong> Detecta calor y movimiento</p>
+            <p><strong>Ejemplo:</strong> Seguidor de línea</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="data-section">
+        <h4>¿Qué son los Datos?</h4>
+        <p>Los datos es la información que los sensores recopilan del entorno.</p>
+        
+        <div class="data-flow">
+          <div class="flow-step">
+            <div class="step-number">1</div>
+            <p>Sensor capta información</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="step-number">2</div>
+            <p>Convierte a datos digitales</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="step-number">3</div>
+            <p>CPU procesa los datos</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="step-number">4</div>
+            <p>Robot toma decisiones</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="local-activity">
+      <h3>Actividad Quiz: HotPotatoes</h3>
+      <div class="local-iframe-wrapper">
+        <div class="responsive-embed">
+          <iframe src="/assets/actividades/quizHotPotatos.htm" allowfullscreen frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="educaplay-activity">
+      <h3>Actividad Interactiva - Crucigrama</h3>
+      
+      <div class="crossword-game">
+          <div class="crossword-clues">
+          <h5>Horizontal:</h5>
+          <ul>
+            <li>1. Sensor que usa ondas sonoras</li>
+            <li>5. Sensor que detecta calor</li>
+          </ul>
+          
+          <h5>Vertical:</h5>
+          <ul>
+            <li>2. Sensor que captura imágenes</li>
+            <li>3. Información que recopilan los sensores</li>
+            <li>4. Sensor que detecta contacto</li>
+          </ul>
+        </div>
+
+        <div class="crossword-grid">
+          <div class="crossword-row" *ngFor="let row of crossword; let i = index">
+                   <div class="crossword-cell" 
+                   *ngFor="let cell of row; let j = index"
+                   [class.filled]="(cell !== null && cell !== '') && cell !== undefined"
+                   [class.fillable]="cell === ''"
+                   [class.empty]="cell === null"
+                   [class.correct]="isCorrect(i, j)">
+                <span class="cell-number" *ngIf="getCellNumber(i, j)">{{getCellNumber(i, j)}}</span>
+                <input *ngIf="cell === ''" 
+                  type="text" 
+                  maxlength="1"
+                  [(ngModel)]="userAnswers[i][j]"
+                  (input)="checkAnswer()">
+                <span *ngIf="(cell !== null && cell !== '') && cell !== undefined">{{cell}}</span>
+                   </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-status">
+        <strong>Progreso:</strong> Palabras correctas: {{correctWords}}/5
+        <button class="reset-button" (click)="resetActivity()">Reintentar</button>
+      </div>
+
+      <div class="activity-feedback" *ngIf="showFeedback">
+        <h4>Resultado del Crucigrama</h4>
+        <p>Palabras correctas: {{correctWords}}/5</p>
+        <p *ngIf="correctWords === 5">✅ ¡Excelente! Crucigrama completado correctamente.</p>
+        <p *ngIf="correctWords < 5">💡 Sigue intentando, casi lo logras.</p>
+
+        <div class="word-solutions" *ngIf="correctWords === 5">
+          <h5>Soluciones:</h5>
+          <ul>
+            <li>🦇 ULTRASONIDO - Sensor de distancia por sonido</li>
+            <li>📊 DATOS - Información recopilada</li>
+            <li>🔴 INFRARROJO - Sensor de calor</li>
+            <li>📷 CAMARA - Sensor visual</li>
+            <li>👆 TACTIL - Sensor de contacto</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
