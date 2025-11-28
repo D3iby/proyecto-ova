@@ -297,33 +297,3 @@
   .robot-body { min-height: 220px; padding: 1rem; }
   .draggable-component { font-size: 0.9rem; padding: 0.8rem; }
 }
-
-@media (max-width: 900px) {
-  :host { font-size: 15px; }
-  .h5p-presentation, .drag-drop-activity { padding: 1rem; }
-}
-
-@media (max-width: 420px) {
-  :host { font-size: 13px; }
-  .h5p-embed-wrapper .responsive-embed { padding-bottom: 100%; }
-  .draggable-component { font-size: 0.85rem; }
-}
-
-@media (max-width: 360px) {
-  :host { font-size: 12px; }
-  .draggable-component { font-size: 0.8rem; }
-}
-
-@media (max-width: 320px) {
-  :host { font-size: 11.5px; }
-  .draggable-component { font-size: 0.75rem; }
-  .nav-button, .nav-btn { width: 100%; box-sizing: border-box; }
-}
-
-@media (max-width: 240px) {
-  :host { font-size: 11px; }
-  .draggable-component { font-size: 0.7rem; }
-  .nav-button, .nav-btn { padding: 0.35rem 0.4rem; }
-}
-
-/* Reglas globales movidas a `src/styles.css` */

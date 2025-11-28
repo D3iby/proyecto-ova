@@ -95,7 +95,10 @@ export class AppComponent implements OnInit {
 
   // Stub para abrir el manual - se integrará cuando entregues el PDF
   openManual(): void {
-    // actualmente no hace nada; se puede conectar para descargar/abrir PDF
-    console.log('openManual called - PDF integration pending');
+    // Abrir el manual de usuario en una nueva pestaña.
+    // El archivo se encuentra en `src/assets/docs/MANUAL_USUARIO.pdf`.
+    const url = '/assets/docs/MANUAL_USUARIO.pdf';
+    // Abrir en nueva pestaña con medidas de seguridad
+    window.open(url, '_blank', 'noopener,noreferrer');
   }
 }

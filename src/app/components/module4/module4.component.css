@@ -414,36 +414,6 @@
   .crossword-cell input { font-size: 0.8rem; }
   .sensor-card, .flow-step { padding: 0.8rem; }
 }
-
-@media (max-width: 900px) {
-  :host { font-size: 15px; }
-  .sensors-intro, .crossword-clues { padding: 1rem; }
-}
-
-@media (max-width: 420px) {
-  :host { font-size: 13px; }
-  .crossword-cell { width: 20px; height: 20px; }
-  .crossword-cell input { font-size: 0.75rem; }
-}
-
-@media (max-width: 360px) {
-  :host { font-size: 12px; }
-  .crossword-cell { width: 18px; height: 18px; }
-}
-
-@media (max-width: 320px) {
-  :host { font-size: 11.5px; }
-  .crossword-cell { width: 16px; height: 16px; }
-  .nav-button, .nav-btn { width: 100%; box-sizing: border-box; }
-}
-
-@media (max-width: 240px) {
-  :host { font-size: 11px; }
-  .crossword-cell { width: 14px; height: 14px; }
-  .nav-button, .nav-btn { padding: 0.35rem 0.4rem; }
-}
-
-/* Reglas globales movidas a `src/styles.css` */
   .crossword-cell {
     width: 25px;
     height: 25px;

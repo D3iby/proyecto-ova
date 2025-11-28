@@ -306,32 +306,3 @@
   .result-items, .results-grid { grid-template-columns: 1fr; }
   .category-btn { min-width: auto; width: 100%; }
 }
-
-@media (max-width: 900px) {
-  :host { font-size: 15px; }
-  .concept-map { padding: 1rem; }
-}
-
-@media (max-width: 420px) {
-  :host { font-size: 13px; }
-  .concept-category { padding: 0.6rem; }
-}
-
-@media (max-width: 360px) {
-  :host { font-size: 12px; }
-  .concept-category { padding: 0.5rem; }
-}
-
-@media (max-width: 320px) {
-  :host { font-size: 11.5px; }
-  .concept-category { padding: 0.45rem; }
-  .nav-button, .nav-btn { width: 100%; box-sizing: border-box; }
-}
-
-@media (max-width: 240px) {
-  :host { font-size: 11px; }
-  .concept-category { padding: 0.35rem; }
-  .nav-button, .nav-btn { padding: 0.35rem 0.4rem; }
-}
-
-/* Reglas globales movidas a `src/styles.css` */
